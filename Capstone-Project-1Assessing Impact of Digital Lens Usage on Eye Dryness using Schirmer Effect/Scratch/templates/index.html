@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictor Form</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="heading">
+        <h1>Prediction Model for Dryness of Eyes</h1>
+        <h3>
+            Enter Details in the form shown below :
+        </h3>
+        </div>
+        <form action="{{ url_for('predict')}}" method = "post">
+            <label for="">Name : </label> <input required type="text" name = 'Name'>
+            <label for="">Age : </label> <input required type="number" name = 'Age'>
+            <label for="">Sex : </label>
+            <input required type="radio" name = "sex" value = '1'> <label for="">Male</label>
+            <input required type="radio" name = "sex" value = '2'> <label for="">Female</label>
+            <p>1. Do you wear Prescription glasses or contact lenses?</p>
+            <div class = 'input_check'>
+                <div>
+                    <input required type="radio" name = "option_1" value = "1"> <label for="">Glasses Only</label>
+                </div>
+                <div>
+                    <input required type="radio" name = "option_1" value = '2'> <label for="">Contact Lenses Only</label>
+                </div>
+                <div>
+                    <input required type="radio" name = "option_1" value = '3'> <label for="">None</label>
+                </div>
+                <div>
+                    <input required type="radio" name = "option_1" value = '4'> <label for="">Both, at one or other time</label>
+                </div>
+                <div>
+                    <input required type="radio" name = "option_1" value = '5'> <label for="">Not applicable</label>
+                </div>
+            </div>
+            <p>2. If yes Duration of usage</p>
+            <div class="input_check">
+                <div>
+                    <input required type="radio" name = "option_2" value = '1'> <label for=""> &lt;5 years</label>
+                </div>
+                <div>
+                    <input required type="radio" name = "option_2" value = '2'> <label for="">5 - 10 years</label>
+                </div>
+                <div>
+                    <input required type="radio" name = "option_2" value = '3'> <label for="">&gt;10 years</label>
+                </div>
+                <div>
+                    <input required type="radio" name = "option_2" value = '0'> <label for="">Not applicable</label>
+                </div>
+            </div>
+            <p>
+                3. Are you using any online platforms to attend any webinars/classes?
+            </p>
+                <div class="input_check">
+                    <div>
+                        <input required type="radio" name = "option_3" value = '1'> <label for="">Yes</label>
+                    </div>
+                    <div>
+                        <input required type="radio" name = "option_3" value = '2'> <label for="">No</label>
+                    </div>
+                </div>
+            <p>
+                4. Nature of computer usage in a day.
+            </p>
+            <div class="input_check">
+                <div>
+                    <input required type="radio" name = "option_4" value = '1'> <label for="">Continuos</label>
+                </div>
+                <div>
+                    <input required type="radio" name = "option_4" value = '2'> <label for="">Interuppted</label>
+                </div>
+            </div>
+            <p>
+                5. What will be your normal screen illumination while working in computer?
+            </p>
+            <div class="input_check">
+                <div>
+                    <input required type="radio" name = "option_5" value = '1'> <label for="">&lt;25%</label>
+                </div>
+                <div>
+                    <input required type="radio" name = "option_5" value = '2'> <label for="">25 - 30%</label>
+                </div>
+                <div>
+                    <input required type="radio" name = "option_5" value = '3'> <label for="">&gt;50%</label>
+                </div>
+            </div>
+            <p>
+                6. How many years you have been working with computer on daily basis?
+            </p>
+            <div class="input_check">
+                <div>
+                    <input required type="radio" name = "option_6" value = '1'> <label for=""> &lt;5 years</label>
+                </div>
+                <div>
+                    <input required type="radio" name = "option_6" value = '2'> <label for="">5 - 10 years</label>
+                </div>
+                <div>
+                    <input required type="radio" name = "option_6" value = '3'> <label for="">&gt;10 years</label>
+                </div>
+            </div>
+            <p>
+                7. How much oout of this total(in hours) is spent for online classes (curriculat purposes) in a day.
+            </p>
+            <div class="input_check">
+                <div><input required type="radio" name = "option_7" value = '1'> <label for="">2 - 4 hours</label></div>
+                <div><input required type="radio" name = "option_7" value = '2'> <label for="">4 - 6 hours</label></div>
+                <div><input required type="radio" name = "option_7" value = '3'> <label for="">6 - 8 hours</label></div>
+                <div><input required type="radio" name = "option_7" value = '4'> <label for="">8 - 10 hours</label></div>
+            </div>
+            <p>
+                8. How much of screen time for reasons other than online classes (non - curricular) in a day?
+            </p>
+            <div class="input_check">
+                <div><input required type="radio" name = "option_8" value = '1'> <label for="">Less than 2 hours</label></div>
+                <div><input required type="radio" name = "option_8" value = '2'> <label for="">2 - 4 hours</label></div>
+                <div><input required type="radio" name = "option_8" value = '3'> <label for="">4 - 6 hours</label></div>
+                <div><input required type="radio" name = "option_8" value = '4'> <label for="">6 - 8 hours</label></div>
+            </div>
+            <p>
+                9. What gadget do you use most of the times for above said purposes?
+            </p>
+            <div class="input_check">
+                <div><input required type="radio" name = "option_9" value = '1'> <label for="">Mobile</label></div>
+                <div><input required type="radio" name = "option_9" value = '2'> <label for="">Laptop</label></div>
+                <div><input required type="radio" name = "option_9" value = '3'> <label for="">Tablet</label></div>
+            </div>
+            <p>
+                10. How do you use the gadget at least half of the tiems(level of gadget with respect to eyes)?
+            </p>
+            <div class="input_check">
+                <div><input required type="radio" name = "option_10" value = '1'> <label for="">Above the level of eyes(eyes have to look up)</label></div>
+                <div><input required type="radio" name = "option_10" value = '2'> <label for="">At the level of eyes</label></div>
+            </div>
+            <p>
+                11. What distance do you keep betwen your eyes & gadget more than half of the times?
+            </p>
+            <div class="input_check">
+                <div><input required type="radio" name = "option_11" value = '1'> <label for="">Less than 25cm</label></div>
+                <div><input required type="radio" name = "option_11" value = '2'> <label for="">25 - 40cm</label></div>
+                <div><input required type="radio" name = "option_11" value = '3'> <label for="">More than 40cm</label></div>
+            </div>
+            <p>
+                12. What is the average night time (after sunset) usage (in hours) of this gadget per day?
+            </p>
+            <div class="input_check">
+                <div><input required type="radio" name = "option_12" value = '1'> <label for="">Less than 1 hour</label></div>
+                <div><input required type="radio" name = "option_12" value = '2'> <label for="">1 - 2 hours</label></div>
+                <div><input required type="radio" name = "option_12" value = '3'> <label for="">2 - 4 hours</label></div>
+                <div><input required type="radio" name = "option_12" value = '4'> <label for="">More than 4 hours</label></div>
+            </div>
+            <p>
+                13. Do you keep on reminding yourself to blink during digital screen usage?
+            </p>
+            <div class="input_check">
+                <div><input required type="radio" name = "option_13" value = '1'> <label for="">Yes</label></div>
+                <div><input required type="radio" name = "option_13" value = '2'> <label for="">No</label></div>
+            </div>
+            <p>
+                14. After using screen, do you feel difficulty focusing from one distance to another more than  half of the times?
+            </p>
+            <div class="input_check">
+                <div><input required type="radio" name = "option_14" value = '1'> <label for="">Yes</label></div>
+                <div><input required type="radio" name = "option_14" value = '2'> <label for="">No</label></div>
+                <div><input required type="radio" name = "option_14" value = '3'> <label for="">Maybe</label></div>
+            </div>
+            <p>
+                15. How frequently do u experience the complaints?
+            </p>
+            <div class="input_check">
+                <div><input required type="radio" name = "option_15" value = '0'> <label for="">Never</label></div>
+                <div><input required type="radio" name = "option_15" value = '1'> <label for="">&lt;5times a week</label></div>
+                <div><input required type="radio" name = "option_15" value = '2'> <label for="">&gt;5 times a week</label></div>
+            </div>
+            <p>
+                16. Severity of ocular complaints
+            </p>
+            <div class="input_check">
+                <div><input required type="radio" name = "option_16" value = '0'> <label for="">Never</label></div>
+                <div><input required type="radio" name = "option_16" value = '1'> <label for="">Disturbs work</label></div>
+                <div><input required type="radio" name = "option_16" value = '2'> <label for="">Severe enough to stop work and take rest</label></div>
+            </div>
+            <p>
+                17.Which out of the following ocular symptoms do you observe lately(after start of online classes)at least half of the times?(MORE THAN ONE RESPONSES CAN BE MARKED)
+            </p>
+            <div class="input_check">
+                <div><input  type="checkbox" name = "option_17" value="1"> <label for="">Heaviness tired eyes</label></div>
+                <div><input  type="checkbox" name = "option_17" value="2"> <label for="">Redness in eyees</label></div>
+                <div><input  type="checkbox" name = "option_17" value="3"> <label for="">Watering from eyes</label></div>
+                <div><input  type="checkbox" name = "option_17" value="4"> <label for="">Feeling of grittiness in eyes</label></div>
+                <div><input  type="checkbox" name = "option_17" value="5"> <label for="">Itchy eyes(eye rubbing)</label></div>
+                <div><input  type="checkbox" name = "option_17" value="6"> <label for="">Transient blurring of vision</label></div>
+                <div><input  type="checkbox" name = "option_17" value="7"> <label for="">Sensitivity to bright light</label></div>
+                <div><input  type="checkbox" name = "option_17" value="8"> <label for="">Contact lens discomfort</label></div>
+                <div><input  type="checkbox" name = "option_17" value="9"> <label for="">Headache</label></div>
+                <div><input  type="checkbox" name = "option_17" value="10"> <label for="">Other</label></div>
+            </div>
+            <p>
+                18. Are you observing any of these symptoms at least half of the times lately?(YOU CAN MARK MORE THAN ONE RESPONSES)
+            </p>
+                <div><input type="checkbox" name = "option_18" value = '1'> <label for="">Itchy eyes(eye rubbing)</label></div>
+                <div><input  type="checkbox" name = "option_18" value = '2'> <label for="">Difficulty concentrating</label></div>
+                <div><input  type="checkbox" name = "option_18" value = '3'> <label for="">Anxiety</label></div>
+                <div><input  type="checkbox" name = "option_18" value = '4'> <label for="">Sleep disturbances</label></div>
+                <div><input  type="checkbox" name = "option_18" value = '5'> <label for="">Dizzinses</label></div>
+                <div><input  type="checkbox" name = "option_18" value = '6'> <label for="">Pain in neck</label></div>
+            <p>
+                19. How frequently you experience the complaints?
+            </p>
+            <div class="input_check">
+                <div><input required type="radio" name = "option_19" value = '1'> <label for="">Never</label></div>
+                <div><input required type="radio" name = "option_19" value = '2'> <label for="">&lt;5times a week</label></div>
+                <div><input required type="radio" name = "option_19" value = '3'> <label for="">&gt;5 times a week</label></div>
+            </div>
+            <p>
+                20. How often do your eyes feel dry?
+            </p>
+            <div class="input_check">
+                <div><input required type="radio" name = "option_20" value = '1'> <label for="">Often</label></div>
+                <div><input required type="radio" name = "option_20" value = '2'> <label for="">Sometimes</label></div>
+                <div><input required type="radio" name = "option_20" value = '3'> <label for="">Never</label></div>
+            </div>
+            <p>
+                21. RSIV
+            </p>
+            <div class="input_check">
+                <div><input required type="radio" name = "option_21" value = '0'> <label for="">0</label></div>
+                <div><input required type="radio" name = "option_21" value = '1'> <label for="">1</label></div>
+            </div>
+            <div class='final'>
+                <input type="submit" value = "Predict">
+                <input type="reset" name="" id="">
+            </div >
+        </form>
+    </div>
+</body>
+</html>

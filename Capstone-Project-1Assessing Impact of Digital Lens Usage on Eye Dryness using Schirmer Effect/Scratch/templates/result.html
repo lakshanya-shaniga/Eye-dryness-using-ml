@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff; /* White font color */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Make body take up full height of viewport */
+        }
+        .content {
+            padding: 20px; /* Add padding to create space between the box and content */
+            border: 2px solid #ffa500; /* Add a border around the body */
+            border-radius: 10px; /* Rounded corners for the border */
+            width: fit-content; /* Adjust the width to fit the content */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+        h1{
+            text-align:center;
+            color: #ffa500;
+        }
+        h3 {
+            color: #ffa500; /* Orange color for headings */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>------------Prediction Results------------</h1>
+        <hr>
+        <h3>
+            Hi {{name}}, Below are the results of the predictions
+        </h3>
+        <ul>
+            {% for i in data %}
+            <h3>{% if data[i][0] == 1 %}
+                <li>{{ i }} : Dry [ $lt;5mm ]</li>
+            {% elif data[i][0] == 2 %}
+                <li>{{ i }} : Slight Dryness [ &gt;=5mm and &lt;15mm ]</li>
+            {% elif data[i][0] == 3 %}
+                <li>{{ i }} : Normal [ &gt;15mm ]</li>
+            {% endif %}</h3>
+            {%endfor%}
+        </ul>
+        <hr>
+        <br>
+        Consulting a Doctor and taking proper medication is suggested if any of the results are 'Dry' or 'Slight Dryness'
+    </div>
+</body>
+</html>
